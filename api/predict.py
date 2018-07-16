@@ -79,7 +79,8 @@ def predict():
 			np.squeeze(scores),
 			category_index,
 			use_normalized_coordinates=True,
-			line_thickness=2)
+			line_thickness=2,
+			min_score_thresh=.05)
 		new_i = Image.fromarray(image_vis)	
 		byte_io = BytesIO()
 		new_i.save(byte_io, 'JPEG')
