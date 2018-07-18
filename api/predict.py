@@ -80,7 +80,7 @@ def predict():
 			category_index,
 			use_normalized_coordinates=True,
 			line_thickness=2,
-			min_score_thresh=.05)
+			min_score_thresh=.45)
 		new_i = Image.fromarray(image_vis)	
 		byte_io = BytesIO()
 		new_i.save(byte_io, 'JPEG')

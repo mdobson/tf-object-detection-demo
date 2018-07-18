@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 input_directory = 'preprocessed-images-step-two'
-output_directory = 'test-data'
+output_directory = 'preprocessed-images-step-three'
 
 for fh in os.listdir(input_directory):
 	key = 0

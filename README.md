@@ -62,4 +62,29 @@ There is currently a single endpoint on the prediction API. It can return JSON o
 
 - Figuring out auth/authz to make sure resources are used only by specific consumers. It would be interesting to create an active directory backed oauth service. 
 - A better defined API style. Using something like the siren hypermedia type would make an API more self documenting. 
-- 
+
+### Running the proof of concept
+
+Requirements:
+
+- Python 3.6.5
+- Flask
+- Requests
+- GRPC
+- Tensorflow
+
+Starting the flask API:
+
+`FLASK_APP=predict.py flask run`
+
+Flask will connect to tensorflow serving on demand. It does not matter which is started first.
+
+Starting tensorflow serving:
+
+`tensorflow_model_server --port=9000 --model_name=obj_det --model_base_path=/home/paperspace/ssd_mobilenet_v1_coco_2017_11_17`
+
+Send requests for prediction:
+
+1. Place images in the `api/test-data` directory
+2. Run `python bulk_request.py`
+3. View predicted labels on images in the `api/analyzed-data` directory
